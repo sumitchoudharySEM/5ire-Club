@@ -8,12 +8,12 @@ module.exports = {
     networks: {
       "mantle-testnet": {
         url: "https://rpc.testnet.mantle.xyz/",
-        accounts: ["83057b7c1ead7f657211964e5cece6b1df54842fdc47edaaa20c63e1f9892942"] // Uses the private key from the .env file
+        accounts: ["00d143cc2bdaac3d846e38f4d38cf8f7c93a39ca6c4ef97a135e3cb6249bb587"] // Uses the private key from the .env file
       },
       hyperspace: {
           chainId: 3141,
           url: "https://api.hyperspace.node.glif.io/rpc/v1",
-          accounts: ["83057b7c1ead7f657211964e5cece6b1df54842fdc47edaaa20c63e1f9892942"],
+          accounts: ["00d143cc2bdaac3d846e38f4d38cf8f7c93a39ca6c4ef97a135e3cb6249bb587"],
       },
       
     }

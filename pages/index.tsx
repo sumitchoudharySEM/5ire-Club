@@ -58,6 +58,7 @@ const Home: NextPage = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const handleClose = () => setOpen(false);
   const [failMessage, setFailMessage] = useState<string>('');
+  const [buttonText, setButtonText] = useState<string>('Connect Wallet');
   
   const [userAddress, setUserAddress] = useState<string>('');
   
@@ -347,6 +348,8 @@ const Home: NextPage = () => {
 
 
             console.log('connected');
+            setButtonText('Conected');
+            
 
             const userAddress:string = address as `0x${string}`;
             
@@ -551,7 +554,7 @@ const Home: NextPage = () => {
                   }}
                   className="!py-3 !px-6 rounded-lg !capitalize !font-semibold !text-m !text-white !bg-[#0ed1a4]"
                 >
-                  Connect Wallet
+                  {buttonText }
                 </Button>
                 </div>
               </div>
