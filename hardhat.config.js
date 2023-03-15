@@ -1,19 +1,21 @@
 require("@nomicfoundation/hardhat-toolbox");
+//require .env
+require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
     version: "0.8.7",
-    defaultNetwork: "hyperspace",
+    defaultNetwork: "mantle-testnet",
     networks: {
       "mantle-testnet": {
         url: "https://rpc.testnet.mantle.xyz/",
-        accounts: ["00d143cc2bdaac3d846e38f4d38cf8f7c93a39ca6c4ef97a135e3cb6249bb587"] // Uses the private key from the .env file
+        accounts: [process.env.PRIV_KEY]
       },
       hyperspace: {
           chainId: 3141,
           url: "https://api.hyperspace.node.glif.io/rpc/v1",
-          accounts: ["00d143cc2bdaac3d846e38f4d38cf8f7c93a39ca6c4ef97a135e3cb6249bb587"],
+          accounts: [process.env.PRIV_KEY]
       },
       
     }

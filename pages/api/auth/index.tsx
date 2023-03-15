@@ -16,9 +16,10 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
 
-  const contractAddress = ("0xaCDFc5338390Ce4eC5AD61E3dC255c9F2560D797").toLowerCase();
+  //const contractAddress = ("0xaCDFc5338390Ce4eC5AD61E3dC255c9F2560D797").toLowerCase();
+  const contractAddress = ("0x1705Be686E606FF75Aa4C2F636Cbd8D5f7956b59").toLowerCase();
 
-  const provider = new ethers.providers.JsonRpcProvider("https://api.hyperspace.node.glif.io/rpc/v1");
+  const provider = new ethers.providers.JsonRpcProvider("https://rpc.testnet.mantle.xyz/");
 
     if (req.method == 'POST') {
 

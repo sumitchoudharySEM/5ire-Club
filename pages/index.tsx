@@ -33,7 +33,8 @@ import harsh_sir from '../app/team/harsh_sir.png';
 import ku_logo from '../app/team/kutumbh_logo.png';
 
 // 0x74367351f1a6809ced9cc70654c6bf8c2d1913c9;
-const contractAddress: string = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+// const contractAddress: string = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const contractAddress: string = "0x1705Be686E606FF75Aa4C2F636Cbd8D5f7956b59";
 const abi:any = contract.abi;
 
 
@@ -112,7 +113,7 @@ const Home: NextPage = () => {
 
 
      const provider = new ethers.providers.JsonRpcProvider(
-       "https://api.hyperspace.node.glif.io/rpc/v1"
+       "https://rpc.testnet.mantle.xyz/"
      );
 
     console.log(receiver);
@@ -215,7 +216,7 @@ const Home: NextPage = () => {
       } else {
 
         const provider = new ethers.providers.JsonRpcProvider(
-          "https://api.hyperspace.node.glif.io/rpc/v1"
+          "https://rpc.testnet.mantle.xyz/"
         );
 
         const token = new ethers.Contract(contractAd, balanceABI, provider);
@@ -334,7 +335,7 @@ const Home: NextPage = () => {
   
       try {
 
-        const provider = new ethers.providers.JsonRpcProvider("https://api.hyperspace.node.glif.io/rpc/v1");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpc.testnet.mantle.xyz/");
 
           let add: any;  
 
@@ -747,7 +748,7 @@ const Home: NextPage = () => {
         
         <div className="cs-height_145 cs-height_lg_80" />
         {/* Start Team Section */}
-        <section>
+        {/* <section>
           <div className="container">
             <div className="cs-slider cs-style2 cs-gap-24">
               <div className="cs-slider_heading cs-style1">
@@ -785,7 +786,6 @@ const Home: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                  {/* .cs-slide */}
                   <div className="cs-slide">
                     <div className="cs-team cs-style1">
                       <div className="cs-member_thumb">
@@ -800,7 +800,6 @@ const Home: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                  {/* .cs-slide */}
                   <div className="cs-slide">
                     <div className="cs-team cs-style1">
                       <div className="cs-member_thumb">
@@ -815,7 +814,6 @@ const Home: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                  {/* .cs-slide */}
                   <div className="cs-slide">
                     <div className="cs-team cs-style1">
                       <div className="cs-member_thumb">
@@ -830,7 +828,6 @@ const Home: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                  {/* .cs-slide */}
                   <div className="cs-slide">
                     <div className="cs-team cs-style1">
                       <div className="cs-member_thumb">
@@ -845,15 +842,12 @@ const Home: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                  {/* .cs-slide */}
                 </div>
               </div>
-              {/* .cs-slider_container */}
               <div className="cs-pagination cs-style1 cs-hidden_desktop" />
             </div>
-            {/* .cs-slider */}
           </div>
-        </section>
+        </section> */}
         {/* End Team Section */}
         <div className="cs-height_150 cs-height_lg_80" />
         

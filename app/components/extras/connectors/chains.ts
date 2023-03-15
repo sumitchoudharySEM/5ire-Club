@@ -39,10 +39,10 @@ export const FileCoinHyperspace: Chain = {
   },
   rpcUrls: {
     default: {
-      http: ["https://api.hyperspace.node.glif.io/rpc/v1"],
+      http: ["https://rpc.testnet.mantle.xyz/"],
     },
     public: {
-      http: ["https://api.hyperspace.node.glif.io/rpc/v1"],
+      http: ["https://rpc.testnet.mantle.xyz/"],
     },
   },
   blockExplorers: {
