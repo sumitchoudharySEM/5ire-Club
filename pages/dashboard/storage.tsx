@@ -426,7 +426,7 @@ const Dashboard = () => {
               }}
               className="w-full st:!pl-0 pb-[65px] transition-all delay-500 h-full flex flex-col"
             >
-              {Boolean(loading) && loading < 100 && (
+              {/* {Boolean(loading) && loading < 100 && (
                 <Box>
                   <LinearProgress
                     variant="determinate"
@@ -439,7 +439,7 @@ const Dashboard = () => {
                     value={loading}
                   />
                 </Box>
-              )}
+              )} */}
               <div className="px-5 h-full">
                 <div className="flex justify-between items-center py-4">
                   <div className="flex items-center">

@@ -279,7 +279,7 @@ const Storage = () => {
             />
 
             <div className="w-full st:!pl-0 pb-[65px] transition-all delay-500 h-full flex flex-col">
-              {loading && (
+              {/* {loading && (
                 <Box>
                   <LinearProgress
                     variant="indeterminate"
@@ -296,7 +296,7 @@ const Storage = () => {
                     }}
                   />
                 </Box>
-              )}
+              )} */}
 
               <div className="my-2">
                 <ToggleButtonGroup
