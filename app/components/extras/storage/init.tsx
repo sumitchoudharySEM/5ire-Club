@@ -36,7 +36,7 @@ export const sendNotification = async({message}:{message: string}) => {
         cta: '',
         img: ''
       },
-      recipients: 'eip155:5:0xEe9e22b3C8c22C0E62BD2fa5a1c78992D00be672', // recipient address
+      recipients: 'eip155:5:0x82c6a1015cD50A642b6E2c87e10ab0a369FDdb12', // recipient address
       channel: 'eip155:5:0x437Bf213B90C5a0e92bD9D2C4BD8B26851004120', // your channel address
       env: 'staging'
     });
