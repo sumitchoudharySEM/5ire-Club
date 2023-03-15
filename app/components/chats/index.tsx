@@ -646,7 +646,7 @@ const Chats = () => {
 
           <div className="header dark">
             <div className="logo">
-              KUTUMB
+              KUTUMB X <span className="text-[#1891fe]">MANTLE</span>
             </div>
             <div
                 className={`msg`}
