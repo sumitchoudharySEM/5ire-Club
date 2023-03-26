@@ -529,7 +529,7 @@ const Home: NextPage = () => {
                   <a className="cs-site_branding " href="">
                     <Image src={ku_logo} alt="Logo" /> 
                   </a>
-                  <samp> X MANTLE</samp>
+                  <samp> X SCROLL</samp>
                 </div>
                 <div className="cs-main_header_center">
                   <div className="cs-nav cs-primary_font cs-medium">

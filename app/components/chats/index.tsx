@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import Router from "next/router";
+import { MouseEvent } from 'react';
 import logo from "../../../public/images/logo.png";
 import Select from "react-select";
 import { sendNotification } from "../extras/storage/init";
@@ -54,6 +55,7 @@ import { useAccount } from "wagmi";
 import Rooms from "../../../app/components/video";
 
 
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -86,7 +88,6 @@ const TabPanel = (props: TabPanelProps) => {
     </div>
   );
 };
-
 
 const Chats = () => {
   const [loginData, setLoginData] = useState<any>({});
@@ -128,11 +129,11 @@ const Chats = () => {
 
   const [disparts, setDisparts] = useState<(string | undefined)[]>([]);
 
-  const [toggle, setToggle] = useState<string | number>('0');
+  const [toggle, setToggle] = useState<string | number>("0");
 
-  const [discussions, setDiscussion] = useState<string>('');
+  const [discussions, setDiscussion] = useState<string>("");
 
-  const [voteDesc, setVoteDesc] = useState<string>('');
+  const [voteDesc, setVoteDesc] = useState<string>("");
 
   const [failMessage, setFailMessage] = useState<string>("");
 
@@ -182,7 +183,17 @@ const Chats = () => {
     if (name != undefined) {
       init();
     }
-  }, [main, currentDir, uploadData, update, contract, name, address, participants, group]);
+  }, [
+    main,
+    currentDir,
+    uploadData,
+    update,
+    contract,
+    name,
+    address,
+    participants,
+    group,
+  ]);
 
   const [enlargen, setEnlargen] = useState<number>(0);
 
@@ -192,7 +203,6 @@ const Chats = () => {
     enlargen: boolean,
     type: "mess" | "vote" = "mess"
   ) => {
-
     console.log(messageText);
 
     if (messageText.length) {
@@ -343,16 +353,16 @@ const Chats = () => {
                             </ToggleButton> */}
                             {contract.toLowerCase() ==
                               "0xacdfc5338390ce4ec5ad61e3dc255c9f2560d797" && (
-                              <ToggleButton
-                                sx={{
-                                  textTransform: "capitalize",
-                                  fontWeight: "500",
-                                }}
-                                value={"2"}
-                              >
-                                A New Participant
-                              </ToggleButton>
-                            )}
+                                <ToggleButton
+                                  sx={{
+                                    textTransform: "capitalize",
+                                    fontWeight: "500",
+                                  }}
+                                  value={"2"}
+                                >
+                                  A New Participant
+                                </ToggleButton>
+                              )}
                           </ToggleButtonGroup>
                         </div>
 
@@ -401,9 +411,9 @@ const Chats = () => {
                                       style={
                                         disparts[i] !== undefined
                                           ? {
-                                              color: "#fff",
-                                              backgroundColor: "#1890FF",
-                                            }
+                                            color: "#fff",
+                                            backgroundColor: "#1890FF",
+                                          }
                                           : {}
                                       }
                                       className="truncate cursor-pointer rounded-[4rem] max-w-[200px] hover:max-w-[450px] py-1 px-[10px] font-[500] text-[#444444] delay-500 transition-all border border-solid border-[rgba(0,0,0,0.12)] mx-[3px]"
@@ -569,57 +579,63 @@ const Chats = () => {
                               fontFamily: "inherit",
                             }}
                             onClick={async () => {
-                              if (nname.length && voteDesc.length && discussions.length) {
+                              if (
+                                nname.length &&
+                                voteDesc.length &&
+                                discussions.length
+                              ) {
                                 setLoader(true);
 
                                 try {
                                   const nMessData = { ...messData };
 
                                   if (nMessData[discussions] !== undefined) {
-                                    
-                                      const newMess: any = {
+                                    const newMess: any = {
+                                      content: { name: nname, desc: voteDesc },
+                                      sent: true,
+                                      type: "vote",
+                                      creator: address,
+                                      expiry: new Date().getTime(),
+                                    };
 
-                                        content: { name: nname, desc: voteDesc },
-                                        sent: true,
-                                        type: "vote",
-                                        creator: address,
-                                        expiry: new Date().getTime(),
-                                      };                                    
+                                    nMessData[discussions]["messages"].push(
+                                      newMess
+                                    );
 
-                                      nMessData[discussions]["messages"].push(newMess);
+                                    await saveMessages(
+                                      JSON.stringify(nMessData)
+                                    );
 
-                                      await saveMessages(
-                                        JSON.stringify(nMessData)
-                                      );
-
-                                      notifications({
-                                        title: `Vote campaign created by ${String(
-                                          address
-                                        ).substring(0, 6)}...
+                                    notifications({
+                                      title: `Vote campaign created by ${String(
+                                        address
+                                      ).substring(0, 6)}...
                       ${String(address).substring(38, 42)}`,
-                                        message: voteDesc,
-                                        receivers: nMessData[discussions]['participants'].length ? nMessData[discussions]['participants'] : lq[2],
-                                        exclude: address || "",
-                                      });
+                                      message: voteDesc,
+                                      receivers: nMessData[discussions][
+                                        "participants"
+                                      ].length
+                                        ? nMessData[discussions]["participants"]
+                                        : lq[2],
+                                      exclude: address || "",
+                                    });
 
-                                      updateMessData(nMessData);
+                                    updateMessData(nMessData);
 
-                                      setGroup(discussions);
+                                    setGroup(discussions);
 
-                                      setDisparts([]);
+                                    setDisparts([]);
 
-                                      setAddNew(false);
+                                    setAddNew(false);
 
-                                      setLoader(false);
-
-                                  }else{
+                                    setLoader(false);
+                                  } else {
                                     setLoader(false);
 
                                     setFailMessage(
                                       "Discussion channel not found"
                                     );
                                   }
-                                  
                                 } catch (err: any) {
                                   setLoader(false);
 
@@ -628,7 +644,9 @@ const Chats = () => {
                                   );
                                 }
                               } else {
-                                setFailMessage("Please all inputs are required");
+                                setFailMessage(
+                                  "Please all inputs are required"
+                                );
                               }
                             }}
                             fullWidth
@@ -646,62 +664,63 @@ const Chats = () => {
 
           <div className="header dark">
             <div className="logo">
-              KUTUMB X <span className="text-[#1891fe]">MANTLE</span>
+              KUTUMB X <span className="text-[#1891fe]">SCROLL</span>
             </div>
             <div
-                className={`msg`}
-                onClick={() => {
-                  setGroup("");
-                }}
-              > Storage
-              </div>
-              <div
-                className={`msg`}
-                title="Add More Discussions, voting, airdrop"
-                onClick={() => setAddNew(true)}
-              >
-                   Addition 
-              </div> 
-              {chatlst.map((gps, i) => {
-                const clst =
-                  messData[gps]["messages"][
-                    messData[gps]["messages"].length - 1
-                  ];
+              className={`msg`}
+              onClick={() => {
+                setGroup("");
+              }}
+            >
+              {" "}
+              Storage
+            </div>
+            <div
+              className={`msg`}
+              title="Add More Discussions, voting, airdrop"
+              onClick={() => setAddNew(true)}
+            >
+              Addition
+            </div>
+            <div>
+              <Link href="../../../pages/subscribe.tsx">Subscribe
+              </Link>
+            
+            </div>
+            {chatlst.map((gps, i) => {
+              const clst =
+                messData[gps]["messages"][messData[gps]["messages"].length - 1];
 
-                return (
-                  
-                  <Chatlist
-                    key={i}
-                    onClick={() => {
-                      setGroup(gps);
+              return (
+                <Chatlist
+                  key={i}
+                  onClick={() => {
+                    setGroup(gps);
 
-                      if (rContext.update !== undefined) {
-                        rContext.update({
-                          content: undefined,
-                          sender: undefined,
-                        });
-                      }
-                    }}
-                    time={clst !== undefined ? clst["date"] : undefined}
-                    img={cicon.src}
-                    lastMsg={clst !== undefined ? clst["content"] : ""}
-                    name={`${gps} ${!i ? "(Main)" : ""}`}
-                  />
-                );
-              })}  
+                    if (rContext.update !== undefined) {
+                      rContext.update({
+                        content: undefined,
+                        sender: undefined,
+                      });
+                    }
+                  }}
+                  time={clst !== undefined ? clst["date"] : undefined}
+                  img={cicon.src}
+                  lastMsg={clst !== undefined ? clst["content"] : ""}
+                  name={`${gps} ${!i ? "(Main)" : ""}`}
+                />
+              );
+            })}
             <div className="search-bar">
-             
               {/* <input type="text" placeholder="Search..." /> */}
             </div>
             <div className="user-settings">
-              
-             
-                <button className="btn btn-primary px-15" onClick={logout}>Logout</button>
-              
+              <button className="btn btn-primary px-15" onClick={logout}>
+                Logout
+              </button>
             </div>
           </div>
           <div className="wrapper">
-
             {group == "" && <Storage />}
 
             {group === true && <Rooms />}
@@ -710,11 +729,14 @@ const Chats = () => {
               <>
                 <div className="chat-area cusscroller">
                   <div className="chat-area-header dark">
-                    <div className="chat-area-title capitalize">{group} <br /><div className="detail-subtitle">
-                      Created : {main.substring(0, 6)}..
-                      {main.substring(38, 42)}
-                    </div></div>
-                    
+                    <div className="chat-area-title capitalize">
+                      {group} <br />
+                      <div className="detail-subtitle">
+                        Created : {main.substring(0, 6)}..
+                        {main.substring(38, 42)}
+                      </div>
+                    </div>
+
                     <div className="">
                       <span>{messData[group]["messages"].length}</span>
                     </div>
@@ -735,17 +757,20 @@ const Chats = () => {
                               enlargen,
                             },
                             i
-                          ) => (
-                            type == 'mess' ? <Text
-                              sender={sender}
-                              date={date}
-                              key={i}
-                              content={content}
-                              sent={server || sent}
-                              reply={reply}
-                              enlargen={Boolean(enlargen)}
-                            /> : <></>
-                          )
+                          ) =>
+                            type == "mess" ? (
+                              <Text
+                                sender={sender}
+                                date={date}
+                                key={i}
+                                content={content}
+                                sent={server || sent}
+                                reply={reply}
+                                enlargen={Boolean(enlargen)}
+                              />
+                            ) : (
+                              <></>
+                            )
                         )}
                       </>
                     )}
@@ -770,7 +795,6 @@ const Chats = () => {
                             alt="No messages yet"
                           />
                         </div>
-
                       </div>
                     )}
                   </div>
@@ -779,11 +803,10 @@ const Chats = () => {
                       <div className="flex justify-between items-center w-full">
                         <div className="py-[10px] opacity-[.7] flex flex-col">
                           <span className="font-bold text-[10px]">
-                            {`Replying to ${
-                              rContext?.sender == address
+                            {`Replying to ${rContext?.sender == address
                                 ? "self"
                                 : rContext?.sender
-                            }`}
+                              }`}
                           </span>
                           <span className="truncate text-[14px]">
                             {rContext?.content}
@@ -833,7 +856,7 @@ const Chats = () => {
                           ) {
                             e.preventDefault();
                             moveMessage(enlargen == 1);
-                            sendNotification({message: messageText});
+                            sendNotification({ message: messageText });
                             setEnlargen(0);
 
                             setMessageText("");
@@ -874,7 +897,6 @@ const Chats = () => {
                           }}
                           className="feather fill-[#727272] transition-all delay-[400] feather-smile hover:fill-[#ffd900]"
                         />
-                        
                       </div>
                     </div>
                   </div>
