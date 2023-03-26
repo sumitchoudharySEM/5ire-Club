@@ -6,19 +6,22 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 
-async function main() {
+const main = async() => {
+  const nftContractFactory = await ethers.getContractFactory('Subscribe')
+  const nftContract = await nftContractFactory.deploy()
+  await nftContract.deployed()
 
-  const Share = await hre.ethers.getContractFactory("share");
-  const share = await Share.deploy();
-
-  await share.deployed();
-
-  console.log("Contract deployed to:", share.address);
+  console.log("Contract deployed to: ", nftContract.address)
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+const runMain = async() => {
+  try {
+    await main()
+    process.exit(0)
+  } catch(error) {
+    console.log(error)
+    process.exit(1)
+  }
+}
+
+runMain()
