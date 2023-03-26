@@ -12,12 +12,7 @@ module.exports = {
         url: "https://alpha-rpc.scroll.io/l2" || "",
         accounts: [process.env.PRIV_KEY]
       },
-      // hyperspace: {
-      //     chainId: 3141,
-      //     url: "https://api.hyperspace.node.glif.io/rpc/v1",
-      //     accounts: [process.env.PRIV_KEY]
-      // },
-      
+    
     }
   },
   paths: {
