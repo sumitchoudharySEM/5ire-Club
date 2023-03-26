@@ -6,17 +6,17 @@ require("dotenv").config();
 module.exports = {
   solidity: {
     version: "0.8.7",
-    defaultNetwork: "mantle-testnet",
+    defaultNetwork: "scrollAlpha",
     networks: {
-      "mantle-testnet": {
-        url: "https://rpc.testnet.mantle.xyz/",
+      "scrollAlpha": {
+        url: "https://alpha-rpc.scroll.io/l2" || "",
         accounts: [process.env.PRIV_KEY]
       },
-      hyperspace: {
-          chainId: 3141,
-          url: "https://api.hyperspace.node.glif.io/rpc/v1",
-          accounts: [process.env.PRIV_KEY]
-      },
+      // hyperspace: {
+      //     chainId: 3141,
+      //     url: "https://api.hyperspace.node.glif.io/rpc/v1",
+      //     accounts: [process.env.PRIV_KEY]
+      // },
       
     }
   },

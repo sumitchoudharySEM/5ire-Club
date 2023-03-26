@@ -9,6 +9,7 @@ import '../styles/index.css'
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { GenProvider } from '../app/components/extras/contexts/genContext'
+import Web3Provider from "ethers";
 import AuthProvider from '../app/components/extras/contexts/AuthContext'
 
 function MyApp({ Component, pageProps }: AppProps) {

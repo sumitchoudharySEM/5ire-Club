@@ -138,3 +138,4 @@ if (proposal.description == "Create community grant program") {
     emit GrantProgramCreated(grantAmount, totalGrantAmount, numGrants, grantApplicationDeadline);
 }
 }
+}

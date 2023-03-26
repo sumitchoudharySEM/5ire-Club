@@ -683,8 +683,7 @@ const Chats = () => {
               Addition
             </div>
             <div>
-              <Link href="../../../pages/subscribe.tsx">Subscribe
-              </Link>
+              <a href="/subscribe">subscribe</a>
             
             </div>
             {chatlst.map((gps, i) => {
