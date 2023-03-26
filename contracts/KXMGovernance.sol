@@ -112,5 +112,29 @@ contract KXMTokenDAO {
 
     // Emit an event to log the change in the DAO state
     emit NewFeatureEnabled(newFeatureEnabled);
+}  
+// create a community grant program to fund innovative projects or ideas
+if (proposal.description == "Create community grant program") {
+    // Set the grant program parameters
+    uint256 grantAmount = 1000 * 10 ** 18; // 1000 KXM tokens per grant
+    uint256 totalGrantAmount = 100000 * 10 ** 18; // 100,000 KXM tokens total
+    uint256 numGrants = 100; // 100 grants available
+    uint256 grantApplicationDeadline = block.timestamp + 30 days; // Application deadline is 30 days from now
+
+    // Check if there are enough funds in the DAO treasury to allocate to the grant program
+    require(token.balanceOf(address(this)) >= totalGrantAmount, "Not enough funds in DAO treasury to create grant program");
+
+    // Update the DAO state to create the grant program
+    daoState.grantProgram = GrantProgram({
+        exists: true,
+        grantAmount: grantAmount,
+        totalGrantAmount: totalGrantAmount,
+        numGrants: numGrants,
+        grantApplicationDeadline: grantApplicationDeadline,
+        grantApplications: new address[](0)
+    });
+
+    // Emit an event to log the creation of the grant program
+    emit GrantProgramCreated(grantAmount, totalGrantAmount, numGrants, grantApplicationDeadline);
 }
 }
