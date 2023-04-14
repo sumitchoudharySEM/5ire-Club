@@ -13,7 +13,7 @@ contract Subscribe is ERC721URIStorage {
   string public collectionName;
   string public collectionSymbol;
 
-  constructor() ERC721("Kutumb", "KTM") {
+  constructor() ERC721("5ireClub", "FSC") {
     collectionName = name();
     collectionSymbol = symbol();
   }
