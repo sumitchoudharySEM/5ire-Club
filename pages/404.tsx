@@ -171,7 +171,7 @@ let executed = useRef(false);
                 An error occured while loading the file
               </div>
               <div className="text-[#1890FF] font-semibold text-lg mx-auto mt-12">
-                Refresh the page to try again
+                Refresh the page to try again and please reach out to dashboard! 
               </div>
             </div>
           </div>
