@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 
 
 export default function MintNFT() {
@@ -26,4 +25,3 @@ export default function MintNFT() {
     </div>
   );
 }
->>>>>>> 82bbbb092b01edade16048c4e8a08f91ecac9776
