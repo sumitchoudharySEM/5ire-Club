@@ -34,8 +34,8 @@ const SubscribePage = () => {
       <h1 className="text-6xl font-bold text-white bg-gradient-to-r from-purple-500 to-indigo-500 rounded-md px-10 py-4 mb-8">
         Subscribe Now
       </h1>
-      <div className="w-3/4 lg:w-1/2">
-        <img src="https://media.istockphoto.com/id/672310452/photo/abstract-science-circle-global-network-connection-in-hands-on-sunset-background.jpg?b=1&s=170667a&w=0&k=20&c=TxCaOmjVps19EBn_KOAm1BVibw_SL3OF6wYe9L7tJwc=" alt="Subscribe" className="rounded-lg p-4 mb-8 " />
+      <div className="w-3/4 lg:w-1/2 ">
+        <img src="https://media.istockphoto.com/id/672310452/photo/abstract-science-circle-global-network-connection-in-hands-on-sunset-background.jpg?b=1&s=170667a&w=0&k=20&c=TxCaOmjVps19EBn_KOAm1BVibw_SL3OF6wYe9L7tJwc=" alt="Subscribe" className="rounded-lg p-4 mb-8 m-auto" />
         {!subscribed ? (
           <div className="flex flex-col md:flex-row gap-4">
             <input
