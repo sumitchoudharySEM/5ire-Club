@@ -67,3 +67,6 @@ body::-webkit-scrollbar-thumb,
     font-weight: 700;
     letter-spacing: 5px;
 }
+.chat-msg-text {
+  color: rgb(0, 0, 0) !important;
+}
