@@ -664,7 +664,7 @@ const Chats = () => {
 
           <div className="header dark">
             <div className="logo">
-              5ire<span className="text-[#1891fe]">Club</span>
+              KUTUMB X <span className="text-[#1891fe]">SCROLL</span>
             </div>
             <div
               className={`msg`}

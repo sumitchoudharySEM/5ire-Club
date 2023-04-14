@@ -27,11 +27,11 @@ export const sendNotification = async({message}:{message: string}) => {
       type: 3, // target
       identityType: 2, // direct payload
       notification: {
-        title: `Chat from 5ire Club`,
+        title: `Chat from Kutumb`,
         body: message
       },
       payload: {
-        title: `Chat from 5ire Club`,
+        title: `Chat from Kutumb`,
         body: message,
         cta: '',
         img: ''
