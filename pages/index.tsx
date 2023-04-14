@@ -534,10 +534,10 @@ const Home: NextPage = () => {
             <div className="container">
               <div className="cs-main_header_in">
                 <div className="cs-main_header_left custom-logo">
-                  <a className="cs-site_branding " href="">
+                  {/* <a className="cs-site_branding " href="">
                     <Image src={ku_logo} alt="Logo" /> 
-                  </a>
-                  <samp> X SCROLL</samp>
+                  </a> */}
+                  <samp>5ire Club</samp>
                 </div>
                 <div className="cs-main_header_center">
                   <div className="cs-nav cs-primary_font cs-medium">
@@ -650,7 +650,7 @@ const Home: NextPage = () => {
           <div className="cs-shape_1" />
           <div className="container">
             <div className="cs-hero_text">
-              <h1 className="cs-hero_title wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.2s"> Creativity In <br />Our DAO </h1>
+              <h1 className="cs-hero_title wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.2s"> Creativity In <br />Our Club </h1>
               <div className="cs-hero_info">
                 <div>
                 <Button
