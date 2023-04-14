@@ -534,10 +534,10 @@ const Home: NextPage = () => {
             <div className="container">
               <div className="cs-main_header_in">
                 <div className="cs-main_header_left custom-logo">
-                  <a className="cs-site_branding " href="">
+                  {/* <a className="cs-site_branding " href="">
                     <Image src={ku_logo} alt="Logo" /> 
-                  </a>
-                  <samp> X SCROLL</samp>
+                  </a> */}
+                  <samp> 5ire Club</samp>
                 </div>
                 <div className="cs-main_header_center">
                   <div className="cs-nav cs-primary_font cs-medium">
